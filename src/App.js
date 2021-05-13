@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Navbar><h1>Lab - Wiki Countries</h1></Navbar>
+      </div>
+
+      <div class="mainPage">
+        <div class="container">
+
+          <div class="col-5">
+            <div class="list-group">
+              <CountriesList></CountriesList>
+            </div>
+          </div>
+
+        </div>
+
+
+        <Route exact path="/:coryId" component={CountryDetails} />
+
+
+
+
+      </div>
     </div>
   );
 }
